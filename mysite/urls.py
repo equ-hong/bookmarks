@@ -17,10 +17,13 @@ import os
 from django.conf.urls import url
 from django.contrib import admin
 from bookmarks.views import *
+from django.views.generic import TemplateView
+
 
 site_media = os.path.join(
   os.path.dirname(__file__), 'site_media'
 )
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,6 +31,9 @@ urlpatterns = [
     url(r'^user/(\w+)/$', user_page),
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', logout_page),
+    url(r'^register/$', register_page),
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
       {'document_root': site_media}),
+    url(r'^register/success/$', TemplateView.as_view(
+        template_name='registration/register_success.html')),
 ]
