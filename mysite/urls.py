@@ -31,6 +31,8 @@ urlpatterns = [
     # Browsing
     url(r'^$', main_page),
     url(r'^user/(\w+)/$', user_page),
+    url(r'^tag/([^\s]+)/$', tag_page),
+    url(r'^search/$', search_page),
 
     # Session management
     url(r'^login/$', 'django.contrib.auth.views.login'),
@@ -41,7 +43,6 @@ urlpatterns = [
  
     # Account management
     url(r'^save/$', bookmark_save_page),
-    url(r'^tag/([^\s]+)/$', tag_page),
 
     # Site media
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
