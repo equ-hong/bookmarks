@@ -9,3 +9,6 @@ ul.tags, ul.tags li {
   margin: 0;
   padding: 0;
 }
+ul.bookmarks .edit {
+  font-size: 70%;
+}
