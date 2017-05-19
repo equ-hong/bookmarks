@@ -27,13 +27,23 @@ site_media = os.path.join(
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    # Browsing
     url(r'^$', main_page),
     url(r'^user/(\w+)/$', user_page),
+
+    # Session management
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', logout_page),
     url(r'^register/$', register_page),
-    url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-      {'document_root': site_media}),
     url(r'^register/success/$', TemplateView.as_view(
         template_name='registration/register_success.html')),
+ 
+    # Account management
+    url(r'^save/$', bookmark_save_page),
+    url(r'^tag/([^\s]+)/$', tag_page),
+
+    # Site media
+    url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
+      {'document_root': site_media}),
 ]
