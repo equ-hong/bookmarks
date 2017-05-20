@@ -30,6 +30,7 @@ urlpatterns = [
 
     # Browsing
     url(r'^$', main_page),
+    url(r'^popular/$', popular_page),
     url(r'^user/(\w+)/$', user_page),
     url(r'^tag/([^\s]+)/$', tag_page),
     url(r'^search/$', search_page),
@@ -43,6 +44,7 @@ urlpatterns = [
  
     # Account management
     url(r'^save/$', bookmark_save_page),
+    url(r'^vote/$', bookmark_vote_page),
 
     # Site media
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
