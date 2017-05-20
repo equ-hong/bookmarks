@@ -40,7 +40,7 @@ class RegistrationForm(forms.Form):
 class BookmarkSaveForm(forms.Form):
   url = forms.URLField(
     label=u'URL',
-    widget=forms.TextInput(attrs={'size': 64})
+    widget=forms.TextInput(attrs={'size': 64, 'autocomplete':'on'})
   )
   title = forms.CharField(
     label=u'Title',

@@ -152,6 +152,18 @@ def search_page(request):
     return render_to_response('search.html', variables)
 
 
+def ajax_tag_autocomplete(request):
+#  if 'q' in request.GET:
+  if 'term' in request.GET:
+    tags = Tag.objects.filter(
+#      name__istartswith=request.GET['q']
+      name__istartswith=request.GET['term']
+    )[:10]
+#    return HttpResponse(u' '.join(tag.name for tag in tags))
+    return HttpResponse(u','.join(tag.name for tag in tags))
+  return HttpResponse()
+
+
 def _bookmark_save(request, form):
   # Create or get link.
   link, dummy = Link.objects.get_or_create(

@@ -47,4 +47,7 @@ urlpatterns = [
     # Site media
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
       {'document_root': site_media}),
+
+    # Ajax
+    url(r'^ajax/tag/autocomplete/$', ajax_tag_autocomplete),
 ]
